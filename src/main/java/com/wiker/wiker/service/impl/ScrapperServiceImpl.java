@@ -49,7 +49,7 @@ public class ScrapperServiceImpl implements ScrapperService {
 
     private static void downloadImage(String strImageURL, String imageName) {
 
-        imageName = imageName + strImageURL.substring(strImageURL.lastIndexOf("."));
+        String imgName = imageName + strImageURL.substring(strImageURL.lastIndexOf("."));
 
         try {
             String imgUrl = "https:" + strImageURL;
@@ -60,7 +60,7 @@ public class ScrapperServiceImpl implements ScrapperService {
             byte[] buffer = new byte[4096];
             int n = -1;
 
-            OutputStream os = new FileOutputStream(OUTPUT_FOLDER + "/" + imageName);
+            OutputStream os = new FileOutputStream(OUTPUT_FOLDER + "/" + imgName);
 
             while ((n = in.read(buffer)) != -1) {
                 os.write(buffer, 0, n);
